@@ -5,6 +5,7 @@
 /home/e/NetBeansProjects/proyecto_web/src/main/java/org/proyecto/services/interfaces/AppServices.java
 /home/e/NetBeansProjects/proyecto_web/src/main/java/org/proyecto/config/Constantes.java
 /home/e/NetBeansProjects/proyecto_web/src/main/java/org/proyecto/models/Persona.java
+/home/e/NetBeansProjects/proyecto_web/src/main/java/org/proyecto/managedbeans/ProyectoMB.java
 /home/e/NetBeansProjects/proyecto_web/src/main/java/org/proyecto/models/Proceso.java
 /home/e/NetBeansProjects/proyecto_web/src/main/java/org/proyecto/JakartaRestConfiguration.java
 /home/e/NetBeansProjects/proyecto_web/src/main/java/org/proyecto/models/Area.java

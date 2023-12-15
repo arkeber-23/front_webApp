@@ -2,83 +2,122 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Proyectos</title>
+        <title>Proyecto Capacitacion</title>
     </h:head>
-    <h:body>
-        <h1>
-            <h:outputText value="Areas" />
-        </h1>
-    </h:body>
     <h:form>
-        <h:dataTable value="#{areaMB.areas}" var="area" id="dtArea">
-            <h:column>
-                <f:facet name="header">
-                    ID 
-                </f:facet>
-                <h:outputLabel value="#{area.idArea}"/>
-            </h:column>
-            <h:column>
-                <f:facet name="header">
-                    Descripciòn
-                </f:facet>
-                <h:outputLabel value="#{area.descripcion}"/>
-            </h:column>
-        </h:dataTable>
+        <center>
+            <h2>
+                ORIGAMI PLANIFICACIÓN 2024  
+            </h2>
+            <span class="eqm">ESQUEMA DE PROYECTOS</span>
+        </center>
 
-        <h:body>
-            <h1>
-                <h:outputText value="Personas" />
-            </h1>
-        </h:body>
+        <style>
+            body{
+                background-color:#ABB2B9;
+            }
+            #panel{
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                margin-top: 2rem;
+            }
+            .panel_content{
+                display: flex;
+                flex-direction: column;
+                box-shadow: 0 0 8px 4px rgba(255,255,255,.6);
+                background-color: #F7F9F9;
+                border-radius: 16px;
+                padding: 2rem;
+            }
+            .panel_first{
+                display: flex;
+                justify-content:center;
+                align-items: center;
+                gap: 2rem;
+            }
+            .panel_options{
+                display: flex;
+                justify-content:space-around;
+                align-items: center;
+                gap: 2rem;
+                margin:.5rem 0;
+            }
+        </style>
+        <div id="panel">
+            <div class="panel_content">
+                <div class="panel_first">
+                    <div>
+                        <label>Procesos: </label>
+                        <p:selectOneMenu>
+                            <f:selectItems value="#{proyectoMB.procesos}" var="proceso" itemValue="#{proceso}" itemLabel="#{proceso.descripcion}" />
+                        </p:selectOneMenu>
+                    </div> 
+                    <div>    
+                        <label>Areas: </label>
+                        <p:selectOneMenu>
+                            <f:selectItems value="#{proyectoMB.areas}" var="area" itemValue="#{area}" itemLabel="#{area.descripcion}" />
+                        </p:selectOneMenu>
+                    </div>
+                </div> 
 
-        <h:dataTable value="#{personaMB.personas}" var="persona" id="dtPersona">
-            <h:column>
-                <f:facet name="header">
-                    ID 
-                </f:facet>
-                <h:outputLabel value="#{persona.idPersona}"/>
-            </h:column>
-            <h:column>
-                <f:facet name="header">
-                    Identidicación
-                </f:facet>
-                <h:outputLabel value="#{persona.identificacion}"/>
-            </h:column>
-            <h:column>
-                <f:facet name="header">
-                    Nombres
-                </f:facet>
-                <h:outputLabel value="#{persona.nombres}"/>
-            </h:column>
-            <h:column>
-                <f:facet name="header">
-                    Apellidos
-                </f:facet>
-                <h:outputLabel value="#{persona.apellidos}"/>
-            </h:column>
-        </h:dataTable>
+                <div class="panel_options">
+                    <div>
+                        <label>Tipo: </label>
+                        <p:selectOneMenu>
+                            <f:selectItem itemLabel="GESTIÓN" itemValue="GESTIÓN"/>
+                            <f:selectItem itemLabel="INVERSIÓN" itemValue="INVERSIÓN"/>
+                        </p:selectOneMenu>
+                    </div>
 
-         <h:body>
-            <h1>
-                <h:outputText value="Procesos" />
-            </h1>
-        </h:body>
-        
-         <h:dataTable value="#{procesoMB.procesos}" var="proceso" id="dtProceso">
-            <h:column>
-                <f:facet name="header">
-                    ID 
-                </f:facet>
-                <h:outputLabel value="#{proceso.idProceso}"/>
-            </h:column>
-            <h:column>
-                <f:facet name="header">
-                    Descripciòn
-                </f:facet>
-                <h:outputLabel value="#{proceso.descripcion}"/>
-            </h:column>
-        </h:dataTable>        
+                    <!-- Recurrente: -->
+                    <p:selectBooleanCheckbox value="#{proyectoMB.proyecto.recurrente}" itemLabel="Recurrente"/>
+
+                    <!-- Arrastre -->
+                    <p:selectBooleanCheckbox value="#{proyectoMB.proyecto.arrastre}" itemLabel="Arrastre"/>
+                    <br />                    
+                </div>
+
+                <label>Denominación del proyecto: </label>
+                <p:inputTextarea rows="6" cols="20" value="#{proyectoMB.proyecto.denominacion}" />
+
+                <label>Detalle caso de arrastre: </label>
+                <p:inputTextarea rows="6" cols="20" value="#{proyectoMB.proyecto.detalleArrastre}" />
+
+
+                <h3>DATOS GENERALES</h3>
+                <label>Responsable: </label>
+                <p:selectOneMenu>
+                    <f:selectItems value="#{proyectoMB.personas}" var="persona" itemValue="#{persona}" itemLabel="#{persona.nombres}" />
+                </p:selectOneMenu>
+
+                <label>Objetivo General: </label>
+                <p:inputTextarea rows="6" cols="33" value="#{proyectoMB.proyecto.objetivo}" />
+                <br />
+                <label>Descripción Breve: </label>
+                <p:inputTextarea rows="6" cols="33" value="#{proyectoMB.proyecto.descripcionBreve}" />
+
+                <div class="panel_options">
+                    <div>
+                        <label>Costro Estimado: </label>
+                        <p:inputNumber value="#{proyectoMB.proyecto.costoProyecto}"/>
+                    </div>
+                    <div>
+                        <label>Fecha Incio: </label>
+                        <p:datePicker value="#{proyectoMB.proyecto.fechaInicio}" />
+                    </div>
+                    <div>
+                        <label>Fecha Fin </label>
+                        <p:datePicker value="#{proyectoMB.proyecto.fechaFin}" />
+                    </div>
+                </div> 
+                <div>
+                    <p:commandButton type="button" value="Guardar" icon="pi pi-save" actionListener="#{proyectoMB.save()}" />
+                </div>
+            </div>
+        </div> 
     </h:form>
 </html>

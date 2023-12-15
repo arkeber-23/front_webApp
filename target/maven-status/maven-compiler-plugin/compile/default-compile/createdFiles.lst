@@ -1,11 +1,12 @@
-org/proyecto/services/ejb/AppEJB.class
 org/proyecto/managedbeans/PersonaMB.class
+org/proyecto/managedbeans/ProcesoMB.class
+org/proyecto/managedbeans/ProyectoMB.class
+org/proyecto/models/Area.class
+org/proyecto/models/Proyecto.class
+org/proyecto/services/ejb/AppEJB.class
 org/proyecto/services/interfaces/AppServices.class
 org/proyecto/config/Constantes.class
-org/proyecto/managedbeans/ProcesoMB.class
 org/proyecto/models/Persona.class
 org/proyecto/JakartaRestConfiguration.class
-org/proyecto/models/Area.class
 org/proyecto/managedbeans/AreaMB.class
 org/proyecto/models/Proceso.class
-org/proyecto/models/Proyecto.class
